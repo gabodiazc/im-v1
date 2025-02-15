@@ -1,0 +1,33 @@
+/* Para compilar este archivo .proto se debe correr $protoc --c_out=. schema.proto
+ * Esto creará archivos .h y .c. El header es el que incluye en el archivo a trabajar. 
+ * 
+ * Si se requiere modificar, se deben borrar los archivos .c y .h y compilar otra vez
+ * con el comando mencionado. */
+
+syntax = "proto3";
+
+message Measure {
+    /* BMI270 */
+    float gyr_x_rads = 1;           // rad/s
+    float gyr_y_rads = 2;
+    float gyr_z_rads = 3;
+    
+    float acc_x_g = 4;              // g
+    float acc_y_g = 5;
+    float acc_z_g = 6;
+
+    float acc_x_ms2 = 7;            // m/s²
+    float acc_y_ms2 = 8;
+    float acc_z_ms2 = 9;
+
+    /* BMM350 */
+    float mag_x_ut = 10;            // uT
+    float mag_y_ut = 11;
+    float mag_z_ut = 12;
+
+    /* BME688 */
+    float temp_c = 13;              // °C
+    float hum_percent = 14;         // % (0-100)
+    float press_hpa = 15;           // hPa
+    float gas_res_ohms = 16;        // Ohms
+}
